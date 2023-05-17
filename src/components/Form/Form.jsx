@@ -1,14 +1,9 @@
-import React from 'react';
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
 import { FillForm, FormLabel, FormInput, FormBtn } from './Form.styled';
 
 export default function Form({ onSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-
-  const nameInputId = nanoid();
-  const numberInputId = nanoid();
 
   const onHandleInputChange = e => {
     const { name, value } = e.currentTarget;
@@ -30,10 +25,9 @@ export default function Form({ onSubmit }) {
   return (
     <>
       <FillForm action="#" onSubmit={onHadleSubmitForm}>
-        <FormLabel htmlFor={nameInputId}>
+        <FormLabel >
           Name
           <FormInput
-            id={nameInputId}
             type="text"
             name="name"
             value={name}
@@ -43,10 +37,9 @@ export default function Form({ onSubmit }) {
             onChange={onHandleInputChange}
           />
         </FormLabel>
-        <FormLabel htmlFor={numberInputId}>
+        <FormLabel >
           Number
           <FormInput
-            id={numberInputId}
             type="tel"
             name="number"
             value={number}
